@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com-mrboss-amap-location"
+    version="1.0.0">
+    <name>AMap Location</name>
+    <description>Cordova Location Plugin By AMap</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,location</keywords>
+
+    <preference name="ANDROID_KEY" />
+
+    <js-module src="www/location.js" name="Location">
+        <clobbers target="window.mrboss.amap" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+       <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.amap.api.location.APSService"></service>   
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROID_KEY"></meta-data> 
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Location" >
+                <param name="android-package" value="com.xunsoft.location.Location"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/com/mrboss/location/Location.java" target-dir="src/com/mrboss/location" />
+        <source-file src="src/android/AMap_Location_V2.8.0_20160811.jar" target-dir="libs" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Location">
+                <param name="ios-package" value="AmapLocation" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>表示应用在前台和后台（suspend 或 terminated）都可以获取到更新的位置数据</string>
+        </config-file>
+
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapFoundationKit.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapFoundationVersion.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapServices.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapURLSearch.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapURLSearchConfig.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapURLSearchType.h" />
+        <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapUtility.h" />
+
+        <header-file src="src/ios/lib/AMapLocationKit/Headers/AMapLocationCommonObj.h" />
+        <header-file src="src/ios/lib/AMapLocationKit/Headers/AMapLocationKit.h" />
+        <header-file src="src/ios/lib/AMapLocationKit/Headers/AMapLocationManager.h" />
+        <header-file src="src/ios/lib/AMapLocationKit/Headers/AMapLocationRegionObj.h" />
+        <header-file src="src/ios/lib/AMapLocationKit/Headers/AMapLocationVersion.h" />
+
+        <header-file src="src/ios/AMapLocation.h" />
+        <source-file src="src/ios/AMapLocation.m" />
+
+        <framework src="src/ios/lib/AMapFoundationKit/AMapFoundationKit.framework" />
+        <framework src="src/ios/lib/AMapLocationKit/AMapLocationKit.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="CoreTeleohony.framework" />
+        <framework src="libz.dylib" />
+        <framework src="libstdc++6.09.dylib" />
+        <framework src="libc++.dylib" />
+    </platform>
+</plugin>

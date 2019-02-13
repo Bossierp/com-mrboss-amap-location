@@ -1,0 +1,25 @@
+{
+  "name": "com-mrboss-amap-location",
+  "version": "1.0.0",
+  "description": "Cordova Location Plugin By AMap",
+  "cordova": {
+    "id": "com-mrboss-amap-location",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bossierp/cordova-plugin-amaplocation.git"
+  },
+  "keywords": [
+    "cordova",
+    "location",
+    "高德",
+    "geolocation",
+    "cordova 高德"
+  ],
+  "author": "Mr.Boss",
+  "license": "Apache 2.0"
+}
