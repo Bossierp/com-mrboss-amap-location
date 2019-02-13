@@ -26,7 +26,7 @@
 
 ## Installation
 
-    cordova plugin add https://github.com/bossierp/cordova-plugin-amaplocation.git
+    cordova plugin add https://github.com/bossierp/cordova-plugin-amaplocation --variable ANDROID_KEY=value
 
 ## Properties
 
