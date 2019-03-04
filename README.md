@@ -26,7 +26,7 @@
 
 ## Installation
 
-    cordova plugin add https://github.com/Bossierp/com-mrboss-amap-location --variable ANDROID_KEY=value
+    cordova plugin add https://github.com/Bossierp/com-mrboss-amap-location --variable ANDROID_KEY="YOUR_ANDROID_API_KEY_IS_HERE" --variable IOS_KEY="YOUR_IOS_API_KEY_IS_HERE"
 
 ## Properties
 

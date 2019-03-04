@@ -29,6 +29,7 @@
     <keywords>cordova,location</keywords>
 
     <preference name="ANDROID_KEY" />
+    <preference name="IOS_KEY" />
 
     <js-module src="www/location.js" name="Location">
         <clobbers target="window.mrboss.amap" />
@@ -71,7 +72,11 @@
         <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
             <string>表示应用在前台和后台（suspend 或 terminated）都可以获取到更新的位置数据</string>
         </config-file>
-
+      
+        <config-file target="*-Info.plist" parent="AMapApiKey">
+          <string>$IOS_KEY</string>
+        </config-file>
+      
         <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapFoundationKit.h" />
         <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapFoundationVersion.h" />
         <header-file src="src/ios/lib/AMapFoundationKit/Headers/AMapServices.h" />
