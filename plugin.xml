@@ -22,7 +22,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com-mrboss-amap-location"
-    version="1.0.0">
+    version="2.0.0">
     <name>AMap Location</name>
     <description>Cordova Location Plugin By AMap</description>
     <license>Apache 2.0</license>
@@ -58,7 +58,7 @@
         </config-file>
 
         <source-file src="src/android/com/mrboss/location/Location.java" target-dir="src/com/mrboss/location" />
-        <source-file src="src/android/AMap_Location_V2.8.0_20160811.jar" target-dir="libs" />
+        <source-file src="src/android/AMap_Location_V5.2.0_20200915.jar" target-dir="libs" />
     </platform>
 
     <!-- ios -->
